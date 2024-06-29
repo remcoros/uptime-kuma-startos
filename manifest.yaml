@@ -1,0 +1,99 @@
+id: uptime-kuma
+title: "Uptime Kuma"
+version: 1.23.13
+release-notes: |
+  * Initial release of Uptime Kuma 1.23.13
+license: MIT
+wrapper-repo: "https://github.com/remcoros/uptime-kuma-startos"
+upstream-repo: "https://github.com/louislam/uptime-kuma"
+support-site: "https://github.com/louislam/uptime-kuma/issues"
+marketing-site: "https://github.com/louislam/uptime-kuma"
+donation-url: "https://opencollective.com/uptime-kuma"
+build: ["make"]
+description:
+  short: Uptime Kuma - A fancy self-hosted monitoring tool
+  long: |
+    Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+assets:
+  license: LICENSE
+  icon: icon.png
+  instructions: instructions.md
+main:
+  type: docker
+  image: main
+  entrypoint: "docker_entrypoint.sh"
+  args: []
+  mounts:
+    main: /app/data
+  gpu-acceleration: false
+hardware-requirements:
+  arch:
+    - x86_64
+    - aarch64
+health-checks:
+  web-ui:
+    name: Uptime Kuma User Interface
+    success-message: Ready to be visited in a web browser
+    type: script
+config:
+  get:
+    type: script
+  set:
+    type: script
+properties:
+  type: script
+volumes:
+  main:
+    type: data
+interfaces:
+  main:
+    name: User Interface
+    description: Uptime Kuma Web user interface
+    tor-config:
+      port-mapping:
+        80: "3001"
+    lan-config:
+      443:
+        ssl: true
+        internal: 3001
+    ui: true
+    protocols:
+      - tcp
+      - http
+dependencies: {}
+backup:
+  create:
+    type: docker
+    image: compat
+    system: true
+    entrypoint: compat
+    args:
+      - duplicity
+      - create
+      - /mnt/backup
+      - /app/data
+    mounts:
+      BACKUP: /mnt/backup
+      main: /app/data
+  restore:
+    type: docker
+    image: compat
+    system: true
+    entrypoint: compat
+    args:
+      - duplicity
+      - restore
+      - /mnt/backup
+      - /app/data
+    mounts:
+      BACKUP: /mnt/backup
+      main: /app/data
+migrations:
+  from:
+    "*":
+      type: script
+      args: ["from"]
+  to:
+    "*":
+      type: script
+      args: ["to"]
