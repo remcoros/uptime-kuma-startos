@@ -13,7 +13,7 @@ build: ["make"]
 description:
   short: Uptime Kuma - A fancy self-hosted monitoring tool
   long: |
-    Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+    Uptime Kuma is an easy-to-use self-hosted monitoring tool. It allows you to monitor the uptime of your websites, servers, and applications, providing real-time notifications and detailed reports. With a sleek and user-friendly interface, Uptime Kuma ensures you stay informed about the status of your critical systems effortlessly.
 assets:
   license: LICENSE
   icon: icon.png
@@ -35,13 +35,8 @@ health-checks:
     name: Uptime Kuma User Interface
     success-message: Ready to be visited in a web browser
     type: script
-config:
-  get:
-    type: script
-  set:
-    type: script
-properties:
-  type: script
+config: ~
+properties: ~
 volumes:
   main:
     type: data
