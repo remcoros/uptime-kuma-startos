@@ -7,12 +7,10 @@ TS_FILES := $(shell find ./ -name \*.ts)
 all: verify
 
 arm:
-	# this is not a typo, when building arm, remove the x86_64 image so it doesn't get packed by start-sdk
 	@rm -f docker-images/x86_64.tar
 	@ARCH=aarch64 $(MAKE)
 
 x86:
-	# this is not a typo, when building x86, remove the aarch64 image so it doesn't get packed by start-sdk
 	@rm -f docker-images/aarch64.tar
 	@ARCH=x86_64 $(MAKE)
 
