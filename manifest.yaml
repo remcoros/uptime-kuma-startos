@@ -1,8 +1,10 @@
 id: uptime-kuma
 title: "Uptime Kuma"
-version: 1.23.13
+version: 1.23.15
 release-notes: |
-  * Initial release of Uptime Kuma 1.23.13
+  * Update to Uptime Kuma 1.23.15
+  * [1.23.14 changelog](https://github.com/louislam/uptime-kuma/releases/tag/1.23.14)
+  * [1.23.15 changelog](https://github.com/louislam/uptime-kuma/releases/tag/1.23.15)
 license: MIT
 wrapper-repo: "https://github.com/remcoros/uptime-kuma-startos"
 upstream-repo: "https://github.com/louislam/uptime-kuma"
