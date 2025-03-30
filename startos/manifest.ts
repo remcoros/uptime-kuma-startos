@@ -13,7 +13,6 @@ export const manifest = setupManifest({
     short: 'Uptime Kuma - A fancy self-hosted monitoring tool',
     long: 'Uptime Kuma is an easy-to-use self-hosted monitoring tool. It allows you to monitor the uptime of your websites, servers, and applications, providing real-time notifications and detailed reports. With a sleek and user-friendly interface, Uptime Kuma ensures you stay informed about the status of your critical systems effortlessly.',
   },
-  assets: [],
   volumes: ['main'],
   images: {
     main: {
@@ -32,6 +31,7 @@ export const manifest = setupManifest({
   // hardwareRequirements: {
   //   arch: ['x86_64'],
   // },
+  hardwareRequirements: {},
   alerts: {
     install: null,
     update: null,
