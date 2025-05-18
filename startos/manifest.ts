@@ -16,21 +16,12 @@ export const manifest = setupManifest({
   volumes: ['main'],
   images: {
     main: {
+      arch: ['x86_64', 'aarch64'],
       source: {
-        dockerBuild: {
-          workdir: '.',
-          dockerfile: 'Dockerfile',
-          // buildArgs: {
-          //   TEST: "test",
-          //   TEST_FROMENV: { env: "FROMENV" },
-          // }
-        },
+        dockerTag: 'louislam/uptime-kuma:1.23.16-alpine',
       },
     },
   },
-  // hardwareRequirements: {
-  //   arch: ['x86_64'],
-  // },
   hardwareRequirements: {},
   alerts: {
     install: null,
