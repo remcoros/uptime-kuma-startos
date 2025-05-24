@@ -19,7 +19,7 @@ Follow these steps to create a new proxy in Uptime Kuma:
 - Go to 'Proxies' and click 'Setup Proxy'
 - Use the following settings:
   - Proxy Protocol: `SOCKS v5 (+ DNS)`
-  - Server Address: `embassy`
+  - Server Address: `10.0.3.1`
   - Port: `9050`
   - Enabled: `on`
 
