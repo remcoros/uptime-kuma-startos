@@ -5,9 +5,7 @@ import { uiPort } from './utils'
 export const main = sdk.setupMain(async ({ effects, started }) => {
   console.info('Starting Uptime Kuma')
 
-  const healthReceipts: T.HealthCheck[] = []
-
-  return sdk.Daemons.of(effects, started, healthReceipts).addDaemon('primary', {
+  return sdk.Daemons.of(effects, started).addDaemon('primary', {
     subcontainer: await sdk.SubContainer.of(
       effects,
       {
@@ -21,8 +19,10 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
       }),
       'main',
     ),
-    command: ['node', 'server/server.js'], // The command to start the daemon.
-    cwd: '/app',
+    exec: {
+      command: ['node', 'server/server.js'], // The command to start the daemon.
+      cwd: '/app',
+    },
     ready: {
       display: 'Web Interface', // If null, the health check will NOT be displayed to the user. If provided, this string will be the name of the health check and displayed to the user.
       // The function below determines the health status of the daemon.

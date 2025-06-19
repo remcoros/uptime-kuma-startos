@@ -23,7 +23,7 @@ Follow these steps to create a new proxy in Uptime Kuma:
   - Port: `9050`
   - Enabled: `on`
 
-When adding or editing monitors, you can now select this new proxy: `embassy:9050 (socks5h)`
+When adding or editing monitors, you can now select this new proxy: `10.0.3.1:9050 (socks5h)`
 
 You only have to create this proxy once and can then use it for all your '.onion' HTTP(s) monitors.
 
