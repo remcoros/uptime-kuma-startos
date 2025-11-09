@@ -20,7 +20,7 @@ export const manifest = setupManifest({
     main: {
       arch: ['x86_64', 'aarch64'],
       source: {
-        dockerTag: 'louislam/uptime-kuma:1.23.16-alpine',
+        dockerTag: 'louislam/uptime-kuma:1.23.17-alpine',
       },
     },
   },
