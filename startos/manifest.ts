@@ -1,4 +1,5 @@
 import { setupManifest } from '@start9labs/start-sdk'
+import { UPTIMEKUMA_VERSION } from './install/versions'
 
 export const manifest = setupManifest({
   id: 'uptime-kuma',
@@ -20,7 +21,7 @@ export const manifest = setupManifest({
     main: {
       arch: ['x86_64', 'aarch64'],
       source: {
-        dockerTag: 'louislam/uptime-kuma:1.23.17-alpine',
+        dockerTag: `louislam/uptime-kuma:${UPTIMEKUMA_VERSION}-alpine`,
       },
     },
   },
