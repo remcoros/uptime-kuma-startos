@@ -1,11 +1,10 @@
 import { sdk } from './sdk'
-import { T } from '@start9labs/start-sdk'
 import { uiPort } from './utils'
 
-export const main = sdk.setupMain(async ({ effects, started }) => {
+export const main = sdk.setupMain(async ({ effects }) => {
   console.info('Starting Uptime Kuma')
 
-  return sdk.Daemons.of(effects, started).addDaemon('primary', {
+  return sdk.Daemons.of(effects).addDaemon('primary', {
     subcontainer: await sdk.SubContainer.of(
       effects,
       {
@@ -20,7 +19,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
       'main',
     ),
     exec: {
-      command: ['node', 'server/server.js'], // The command to start the daemon.
+      command: sdk.useEntrypoint(), 
       cwd: '/app',
     },
     ready: {

@@ -25,7 +25,9 @@ export const manifest = setupManifest({
       },
     },
   },
-  hardwareRequirements: {},
+  hardwareRequirements: {
+    arch: ['x86_64', 'aarch64'],
+  },
   alerts: {
     install: null,
     update: null,
