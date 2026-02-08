@@ -1,5 +1,6 @@
 import { sdk } from './sdk'
 import { uiPort } from './utils'
+import { i18n } from './i18n'
 
 export const setInterfaces = sdk.setupInterfaces(async ({ effects }) => {
   const uiMulti = sdk.MultiHost.of(effects, 'main')
@@ -9,9 +10,9 @@ export const setInterfaces = sdk.setupInterfaces(async ({ effects }) => {
   })
 
   const ui = sdk.createInterface(effects, {
-    name: 'Web UI',
+    name: i18n('Web UI'),
     id: 'ui',
-    description: 'Web Interface',
+    description: i18n('Web Interface'),
     type: 'ui',
     schemeOverride: null,
     masked: false,
