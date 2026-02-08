@@ -1,5 +1,6 @@
 import { sdk } from './sdk'
 import { uiPort } from './utils'
+import { i18n } from './i18n'
 
 export const main = sdk.setupMain(async ({ effects }) => {
   console.info('Starting Uptime Kuma')
@@ -23,15 +24,15 @@ export const main = sdk.setupMain(async ({ effects }) => {
       cwd: '/app',
     },
     ready: {
-      display: 'Web Interface', // If null, the health check will NOT be displayed to the user. If provided, this string will be the name of the health check and displayed to the user.
+      display: i18n('Web Interface'), // If null, the health check will NOT be displayed to the user. If provided, this string will be the name of the health check and displayed to the user.
       // The function below determines the health status of the daemon.
       fn: () =>
         sdk.healthCheck.checkWebUrl(
           effects,
           'http://uptime-kuma.startos:' + uiPort,
           {
-            successMessage: 'The web interface is ready',
-            errorMessage: 'The web interface is unreachable',
+            successMessage: i18n('The web interface is ready'),
+            errorMessage: i18n('The web interface is unreachable'),
           },
         ),
     },
